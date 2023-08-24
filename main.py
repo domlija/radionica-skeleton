@@ -16,20 +16,23 @@ app.include_router(comments.router)
 
 @app.get("/")
 async def root(req: Request):
+    return {}
     
 
 @app.get("/search")
 async def search_user(username: str = ''):
+    return {}
     
 
 
 @app.get('/signup')
 async def get_signup_page(request: Request): 
+    return {}
     
 
 @app.post('/signup')
 async def signup_user(username: Annotated[str, Form()], password: Annotated[str, Form()], passwordRepeat: Annotated[str, Form()]):
-
+    return {}
 
 @app.get('/login')
 async def get_login_page(request: Request):
@@ -38,7 +41,7 @@ async def get_login_page(request: Request):
 
 @app.post('/login')
 async def login_user(username: Annotated[str, Form()], password:Annotated[str, Form()]):
-
+    return {}
 
 @app.get('/logout')
 async def logout_user(req: Request):
