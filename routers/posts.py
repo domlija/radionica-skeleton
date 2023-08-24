@@ -24,12 +24,23 @@ async def get_create_post(req: Request):
 
 @router.get('/{post_id}')
 async def get_post(post_id, request: Request):
+    post = BlogPost.fetch_by_id(post_id)
+    comments = Comment.fetch_by_post_id(post_id)
+
+    return templates.TemplateResponse('blog.view.html', 
+        context={
+            "request": request,
+            "title": post.title,
+            "body": post.body,
+            "comments": comments
+        }
+    )
     
 
 
 @router.post('/')
 async def put_post(title: Annotated[str, Form()], body: Annotated[str, Form()], request: Request):
-    
+    return {}
 
 @router.delete('/{post_id}')
 async def delete_post(post_id, req: Request):
